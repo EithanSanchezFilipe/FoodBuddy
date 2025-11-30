@@ -1,9 +1,22 @@
+<script setup>
+import Silk from '@/composants/Background.vue'
+</script>
 <template>
+  <div class="background-wrapper">
+    <Silk
+      :speed="5"
+      :scale="1.2"
+      :color="'#2E2E2E'"
+      :noise-intensity="0"
+      :rotation="2.3"
+      class="background-canvas"
+    />
+  </div>
   <div class="pricing-page">
     <div class="content-wrapper">
       <h1>Simple, Transparent Pricing</h1>
       <p class="subtitle">Choose the plan that fits your culinary journey.</p>
-      
+
       <div class="pricing-grid">
         <div class="pricing-card">
           <h3>Free</h3>
@@ -15,7 +28,7 @@
           </ul>
           <button class="btn-secondary">Get Started</button>
         </div>
-        
+
         <div class="pricing-card featured">
           <div class="badge">Most Popular</div>
           <h3>Pro</h3>
@@ -28,7 +41,7 @@
           </ul>
           <button class="btn-primary">Start Free Trial</button>
         </div>
-        
+
         <div class="pricing-card">
           <h3>Chef</h3>
           <div class="price">$19.99<span>/mo</span></div>
@@ -49,12 +62,19 @@
 .pricing-page {
   min-height: 100vh;
   padding: 8rem 2rem 6rem;
-  background: linear-gradient(135deg, #1a1a1a 0%, #2d2d2d 100%);
   color: #ffffff;
   display: flex;
   justify-content: center;
 }
-
+.background-wrapper {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100vh;
+  z-index: -1;
+  pointer-events: none;
+}
 .content-wrapper {
   max-width: 1200px;
   width: 100%;
@@ -140,7 +160,7 @@ h1 {
 }
 
 .features li::before {
-  content: "✓";
+  content: '✓';
   color: #c084fc;
   margin-right: 0.75rem;
   font-weight: bold;
@@ -179,26 +199,26 @@ button {
   .pricing-page {
     padding: 6rem 1.5rem 4rem;
   }
-  
+
   h1 {
     font-size: 2.5rem;
     line-height: 1.2;
   }
-  
+
   .subtitle {
     font-size: 1.1rem;
     margin-bottom: 3rem;
   }
-  
+
   .pricing-grid {
     grid-template-columns: 1fr;
     gap: 1.5rem;
   }
-  
+
   .pricing-card.featured {
     transform: scale(1);
   }
-  
+
   .pricing-card {
     padding: 2rem;
   }
@@ -208,21 +228,21 @@ button {
   .pricing-page {
     padding: 6rem 1rem 4rem;
   }
-  
+
   h1 {
     font-size: 2rem;
     line-height: 1.2;
     word-break: break-word;
   }
-  
+
   .subtitle {
     font-size: 1rem;
   }
-  
+
   .pricing-card {
     padding: 1.5rem;
   }
-  
+
   .price {
     font-size: 2.5rem;
   }

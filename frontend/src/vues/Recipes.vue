@@ -1,14 +1,28 @@
+<script setup>
+import Silk from '@/composants/Background.vue'
+</script>
+
 <template>
+  <div class="background-wrapper">
+    <Silk
+      :speed="5"
+      :scale="1.2"
+      :color="'#2E2E2E'"
+      :noise-intensity="0"
+      :rotation="2.3"
+      class="background-canvas"
+    />
+  </div>
   <div class="recipes-page">
     <div class="content-wrapper">
       <h1>Explore Recipes</h1>
       <p class="subtitle">Discover delicious meals from around the world.</p>
-      
+
       <div class="search-bar">
         <input type="text" placeholder="Search recipes, ingredients, chefs..." />
         <button>Search</button>
       </div>
-      
+
       <div class="recipes-grid">
         <div class="recipe-card" v-for="i in 6" :key="i">
           <div class="recipe-image"></div>
@@ -34,12 +48,19 @@
 .recipes-page {
   min-height: 100vh;
   padding: 8rem 2rem 6rem;
-  background: linear-gradient(135deg, #1a1a1a 0%, #2d2d2d 100%);
   color: #ffffff;
   display: flex;
   justify-content: center;
 }
-
+.background-wrapper {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100vh;
+  z-index: -1;
+  pointer-events: none;
+}
 .content-wrapper {
   max-width: 1200px;
   width: 100%;
@@ -186,33 +207,33 @@ p {
   .recipes-page {
     padding: 6rem 1.5rem 4rem;
   }
-  
+
   h1 {
     font-size: 2.5rem;
   }
-  
+
   .subtitle {
     font-size: 1.1rem;
   }
-  
+
   .search-bar {
     flex-direction: column;
     gap: 0.75rem;
     margin-bottom: 3rem;
     max-width: 100%;
   }
-  
+
   .search-bar input {
     padding: 0.9rem 1.25rem;
     flex: none;
   }
-  
+
   .search-bar button {
     width: 100%;
     padding: 0.9rem;
     flex: none;
   }
-  
+
   .recipes-grid {
     grid-template-columns: 1fr;
   }
@@ -222,29 +243,29 @@ p {
   .recipes-page {
     padding: 6rem 1rem 4rem;
   }
-  
+
   h1 {
     font-size: 2rem;
   }
-  
+
   .subtitle {
     font-size: 1rem;
   }
-  
+
   .search-bar {
     max-width: 100%;
     width: 100%;
   }
-  
+
   .search-bar input {
     font-size: 0.95rem;
     padding: 0.85rem 1rem;
   }
-  
+
   .search-bar button {
     padding: 0.85rem 1rem;
   }
-  
+
   .recipe-card {
     border-radius: 16px;
   }

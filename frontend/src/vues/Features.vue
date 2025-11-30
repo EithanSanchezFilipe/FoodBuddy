@@ -1,22 +1,36 @@
 <script setup lang="ts">
 import { Bot, Calendar, Activity, ShoppingCart, Users, Smartphone } from 'lucide-vue-next'
+import Silk from '../composants/Background.vue'
 </script>
 
 <template>
+  <div class="background-wrapper">
+    <Silk
+      :speed="5"
+      :scale="1.2"
+      :color="'#2E2E2E'"
+      :noise-intensity="0"
+      :rotation="2.3"
+      class="background-canvas"
+    />
+  </div>
   <div class="features-page">
     <div class="content-wrapper">
       <div class="hero-section">
         <h1>Powerful Features</h1>
         <p class="subtitle">Everything you need to master your culinary journey, powered by AI.</p>
       </div>
-      
+
       <div class="features-grid">
         <div class="feature-card">
           <div class="icon-wrapper">
             <Bot :size="48" color="#818cf8" />
           </div>
           <h3>AI Recipe Generation</h3>
-          <p>Generate unique recipes based on ingredients you already have. Reduce waste and discover new favorites.</p>
+          <p>
+            Generate unique recipes based on ingredients you already have. Reduce waste and discover
+            new favorites.
+          </p>
         </div>
 
         <div class="feature-card">
@@ -24,7 +38,9 @@ import { Bot, Calendar, Activity, ShoppingCart, Users, Smartphone } from 'lucide
             <Calendar :size="48" color="#c084fc" />
           </div>
           <h3>Smart Meal Planning</h3>
-          <p>Automated weekly meal plans tailored to your dietary preferences, goals, and schedule.</p>
+          <p>
+            Automated weekly meal plans tailored to your dietary preferences, goals, and schedule.
+          </p>
         </div>
 
         <div class="feature-card">
@@ -32,7 +48,10 @@ import { Bot, Calendar, Activity, ShoppingCart, Users, Smartphone } from 'lucide
             <Activity :size="48" color="#34d399" />
           </div>
           <h3>Nutrition Tracking</h3>
-          <p>Keep track of calories, macros, and micros automatically as you plan and cook your meals.</p>
+          <p>
+            Keep track of calories, macros, and micros automatically as you plan and cook your
+            meals.
+          </p>
         </div>
 
         <div class="feature-card">
@@ -40,7 +59,10 @@ import { Bot, Calendar, Activity, ShoppingCart, Users, Smartphone } from 'lucide
             <ShoppingCart :size="48" color="#fbbf24" />
           </div>
           <h3>Smart Shopping Lists</h3>
-          <p>Automatically generate organized shopping lists from your meal plans. Never forget an item again.</p>
+          <p>
+            Automatically generate organized shopping lists from your meal plans. Never forget an
+            item again.
+          </p>
         </div>
 
         <div class="feature-card">
@@ -56,7 +78,9 @@ import { Bot, Calendar, Activity, ShoppingCart, Users, Smartphone } from 'lucide
             <Smartphone :size="48" color="#60a5fa" />
           </div>
           <h3>Cross-Platform</h3>
-          <p>Access your recipes and plans from any device. Seamless sync between mobile and desktop.</p>
+          <p>
+            Access your recipes and plans from any device. Seamless sync between mobile and desktop.
+          </p>
         </div>
       </div>
 
@@ -72,12 +96,26 @@ import { Bot, Calendar, Activity, ShoppingCart, Users, Smartphone } from 'lucide
 .features-page {
   min-height: 100vh;
   padding: 8rem 2rem 6rem;
-  background: linear-gradient(135deg, #1a1a1a 0%, #2d2d2d 100%);
   color: #ffffff;
   display: flex;
   justify-content: center;
 }
 
+.background-wrapper {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100vh;
+  z-index: -1;
+  pointer-events: none;
+}
+
+.content-wrapper {
+  position: relative;
+  z-index: 1;
+  padding-top: 50px;
+}
 .content-wrapper {
   max-width: 1200px;
   width: 100%;
@@ -206,11 +244,11 @@ p {
   h1 {
     font-size: 2.5rem;
   }
-  
+
   .features-page {
     padding: 6rem 1rem 4rem;
   }
-  
+
   .features-grid {
     grid-template-columns: 1fr;
   }
